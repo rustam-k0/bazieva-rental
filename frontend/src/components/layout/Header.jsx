@@ -1,0 +1,78 @@
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
+
+const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => setIsOpen(false), [location]);
+
+  const navLinks = [
+    { name: 'Квартиры', path: '/apartments' },
+    { name: 'О нас', path: '/about' }, // Simplified nav
+    { name: 'Контакты', path: '/contacts' },
+  ];
+
+  return (
+    <header 
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-6'
+      }`}
+    >
+      <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
+        {/* LOGO */}
+        <Link to="/" className="flex items-center gap-3 z-50">
+            {/* Assuming logo.jpg is in public/assets/logo.jpg. If not, fallback to text */}
+            {/* <img src="/assets/logo.jpg" alt="Bazieva Logo" className="h-10 w-auto" /> */}
+            <div className="flex flex-col leading-none">
+                <span className="text-2xl font-black tracking-tighter text-brand-700">BAZIEVA</span>
+                <span className="text-[10px] font-bold tracking-[0.2em] text-slate-400 uppercase">Rent Agency</span>
+            </div>
+        </Link>
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-10">
+          {navLinks.map((link) => (
+            <Link 
+              key={link.path}
+              to={link.path} 
+              className="text-sm font-medium text-slate-600 hover:text-brand-700 transition-colors uppercase tracking-wide"
+            >
+              {link.name}
+            </Link>
+          ))}
+          <a 
+            href="https://wa.me/79000000000" 
+            className="bg-brand-700 text-white px-6 py-2.5 rounded-xl text-sm font-semibold hover:bg-brand-800 transition-all shadow-lg shadow-brand-200"
+          >
+            Бронировать
+          </a>
+        </nav>
+
+        {/* Mobile Toggle */}
+        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-slate-900 z-50">
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <div className={`fixed inset-0 bg-white z-40 flex flex-col items-center justify-center gap-8 transition-transform duration-300 md:hidden ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        {navLinks.map((link) => (
+          <Link key={link.path} to={link.path} className="text-3xl font-bold text-slate-900">
+            {link.name}
+          </Link>
+        ))}
+      </div>
+    </header>
+  );
+};
+
+export default Header;
