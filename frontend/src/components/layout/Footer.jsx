@@ -6,16 +6,15 @@ const Footer = () => {
     <footer className="bg-slate-900 text-white py-12 border-t border-slate-800">
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          
+
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
-            <h2 className="text-2xl font-bold mb-4">BAZIEVA<span className="text-brand-500">.RENT</span></h2>
+            <h2 className="text-2xl font-bold font-display mb-4 tracking-tight">BAZIEVA<span className="text-brand-500">.RENTAL</span></h2>
             <p className="text-slate-400 max-w-sm mb-6">
-              Современный сервис краткосрочной аренды. 
-              Европейские стандарты чистоты и кавказское гостеприимство.
+              Современный сервис краткосрочной аренды на Кавказе.
             </p>
             <div className="text-sm text-slate-500">
-              © {new Date().getFullYear()} Bazieva Agency. All rights reserved.
+              © {new Date().getFullYear()} Bazieva Agency.
             </div>
           </div>
 
