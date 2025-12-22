@@ -3,6 +3,7 @@ import Layout from './components/layout/Layout';
 import Home from './pages/Home';
 import Apartments from './pages/Apartments';
 import ApartmentDetails from './pages/ApartmentDetails';
+import FAQ from './pages/FAQ'; // <--- NEW IMPORT
 
 const NotFound = () => (
     <div className="min-h-[60vh] flex items-center justify-center flex-col">
@@ -18,6 +19,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="apartments" element={<Apartments />} />
         <Route path="apartments/:id" element={<ApartmentDetails />} />
+        <Route path="faq" element={<FAQ />} /> {/* <--- NEW ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
