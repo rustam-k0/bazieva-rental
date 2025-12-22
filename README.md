@@ -57,8 +57,8 @@ Brand Awareness, формирование айдентики и Social Proof. О
 ```text
 frontend/
 ├── public/                     # Публичные статические активы (не обрабатываются Webpack/Vite)
-│   ├── assets/                 # Логотипы (logo.jpg), favicon
-│       └── apartments/         # Фотографии квартир (оптимизированные webp/jpg)
+│   ├── assets/                 # Весь визуал
+│       
 │
 ├── src/
 │   ├── components/             # UI-компоненты (Presentation Layer)
