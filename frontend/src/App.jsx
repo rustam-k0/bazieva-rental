@@ -1,9 +1,9 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom'; // <--- Добавлен Navigate
 import Layout from './components/layout/Layout';
 import Home from './pages/Home';
 import Apartments from './pages/Apartments';
 import ApartmentDetails from './pages/ApartmentDetails';
-import FAQ from './pages/FAQ'; // <--- NEW IMPORT
+import FAQ from './pages/FAQ';
 
 const NotFound = () => (
     <div className="min-h-[60vh] flex items-center justify-center flex-col">
@@ -17,9 +17,13 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
+        
+        {/* НОВОЕ ПРАВИЛО: Если путь index.html, перекинуть на главную */}
+        <Route path="index.html" element={<Navigate to="/" replace />} />
+        
         <Route path="apartments" element={<Apartments />} />
         <Route path="apartments/:id" element={<ApartmentDetails />} />
-        <Route path="faq" element={<FAQ />} /> {/* <--- NEW ROUTE */}
+        <Route path="faq" element={<FAQ />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
