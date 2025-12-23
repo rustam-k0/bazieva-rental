@@ -88,7 +88,7 @@ export const apartments = [
       "/5 floor_webp/5_floor_room.webp",
       "/5 floor_webp/5_floor_kitchen.webp",
       "/5 floor_webp/5_floor_room_view2.webp",
-      "/5 floor_webp/5_floor_bathroom.webp",
+      "/5 floor_webp/5_floor_corridor.webp",
       "/5 floor_webp/5_floor_balcony.webp"
     ],
     rating: 5.0
