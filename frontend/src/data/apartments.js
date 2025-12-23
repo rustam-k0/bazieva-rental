@@ -36,13 +36,13 @@ export const apartments = [
       "Залог 1000₽",
       "Без вечеринок"
     ],
-    coverImage: "/4 floor/4_floor_room.png",
+    coverImage: "/4 floor_webp/4_floor_room.webp",
     images: [
-      "/4 floor/4_floor_room.png",
-      "/4 floor/4_floor_room_entrance.png",
-      "/4 floor/4_floor_kitchen.png",
-      "/4 floor/4_floor_bathroom.png",
-      "/4 floor/4_floor_view.png"
+      "/4 floor_webp/4_floor_room.webp",
+      "/4 floor_webp/4_floor_room_entrance.webp",
+      "/4 floor_webp/4_floor_kitchen.webp",
+      "/4 floor_webp/4_floor_bathroom.webp",
+      "/4 floor_webp/4_floor_view.webp"
     ],
     rating: 5.0
   },
@@ -83,13 +83,13 @@ export const apartments = [
       "Залог 1000₽",
       "Без животных"
     ],
-    coverImage: "/5 floor/5_floor_room.png",
+    coverImage: "/5 floor_webp/5_floor_room.webp",
     images: [
-      "/5 floor/5_floor_room.png",
-      "/5 floor/5_floor_kitchen.png",
-      "/5 floor/5_floor_room_view2.png",
-      "/5 floor/5_floor_bathroom.png",
-      "/5 floor/5_floor_balcony.png"
+      "/5 floor_webp/5_floor_room.webp",
+      "/5 floor_webp/5_floor_kitchen.webp",
+      "/5 floor_webp/5_floor_room_view2.webp",
+      "/5 floor_webp/5_floor_bathroom.webp",
+      "/5 floor_webp/5_floor_balcony.webp"
     ],
     rating: 5.0
   }
