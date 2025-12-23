@@ -18,14 +18,14 @@ const Home = () => {
         </div>
 
         <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+          {/* Centered Content since image is removed */}
+          <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
 
-            {/* Left Content */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="flex-1 max-w-2xl"
+              className="flex flex-col items-center"
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/50 border border-slate-700 text-brand-400 text-xs font-bold uppercase tracking-widest mb-8 backdrop-blur-md">
                 <Star size={12} fill="currentColor" /> Счастливые клиенты с 2016 года
@@ -36,11 +36,11 @@ const Home = () => {
                   в центре Нальчика
                 </span>
               </h1>
-              <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed font-light max-w-lg">
-                Внимательное отношение к деталям и искреннее гостеприимство. Более 10 лет создаем уют для наших гостей.
+              <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed font-light max-w-lg mx-auto">
+                Внимательное отношение к деталям и искреннее гостеприимство. Более 10 лет создаём уют для гостей.
               </p>
 
-              <div className="flex flex-wrap gap-4 mb-10">
+              <div className="flex flex-wrap justify-center gap-4 mb-10">
                 <div className="flex items-center gap-2 bg-brand-900/50 px-3 py-1.5 rounded-lg border border-brand-700/50 backdrop-blur-sm">
                   <Star size={16} className="text-[#FFD700] fill-[#FFD700]" />
                   <span className="text-white font-bold">5.0</span>
@@ -66,32 +66,6 @@ const Home = () => {
                 >
                   WhatsApp
                 </a>
-              </div>
-            </motion.div>
-
-            {/* Right Image (Hostess) */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="flex-1 w-full max-w-md lg:max-w-xl relative"
-            >
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] shadow-2xl shadow-black/50 border border-slate-700/50">
-                <img
-                  src="/owner.jpg"
-                  alt="Мадина Базиева"
-                  className="w-full h-full object-cover scale-105 hover:scale-100 transition-transform duration-1000"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
-
-                <div className="absolute bottom-6 left-6 right-6 p-4 bg-white/10 backdrop-blur-xl border border-white/10 rounded-2xl">
-                  <p className="text-white text-sm font-medium">
-                    "Моя цель — чтобы вы чувствовали себя как дома, но с сервисом лучшего отеля."
-                  </p>
-                  <p className="text-brand-300 text-xs font-bold mt-2 uppercase tracking-wider">
-                    Мадина Базиева, Основатель
-                  </p>
-                </div>
               </div>
             </motion.div>
 
