@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { apartments } from '../data/apartments';
 import ApartmentCard from '../features/apartments/ApartmentCard';
+import EmptyState from '../components/ui/EmptyState';
 
 const Apartments = () => {
   return (
@@ -21,9 +22,18 @@ const Apartments = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {apartments.map((apt, i) => (
-            <ApartmentCard key={apt.id} apartment={apt} index={i} />
-          ))}
+          {apartments && apartments.length > 0 ? (
+            apartments.map((apt, i) => (
+              <ApartmentCard key={apt.id} apartment={apt} index={i} />
+            ))
+          ) : (
+            <div className="col-span-full">
+              <EmptyState
+                title="Сейчас нет свободных квартир"
+                description="К сожалению, все квартиры заняты или список обновляется. Свяжитесь с нами, чтобы узнать о ближайших освобождающихся датах."
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>

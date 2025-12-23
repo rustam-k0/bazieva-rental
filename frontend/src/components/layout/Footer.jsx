@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="bg-slate-900 text-white py-12 border-t border-slate-800">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 mb-12">
 
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
@@ -24,6 +24,7 @@ const Footer = () => {
             <ul className="space-y-3 text-slate-400">
               <li><Link to="/" className="hover:text-white transition-colors">Главная</Link></li>
               <li><Link to="/apartments" className="hover:text-white transition-colors">Квартиры</Link></li>
+              <li><Link to="/contacts" className="hover:text-white transition-colors">Контакты</Link></li>
               <li><Link to="/faq" className="hover:text-white transition-colors">Вопросы и ответы (FAQ)</Link></li>
             </ul>
           </div>
@@ -34,11 +35,15 @@ const Footer = () => {
             <ul className="space-y-3 text-slate-400">
               <li>Мадина Базиева</li>
               <li>
-                <a href="https://wa.me/79287084447" className="hover:text-white transition-colors">
+                <a href="https://wa.me/79287084447" className="hover:text-white transition-colors block mb-2">
                   +7 (928) 708-44-47
                 </a>
               </li>
-              <li className="text-sm opacity-60">Нальчик, Кабардино-Балкария</li>
+              <li className="flex gap-4 mt-2">
+                <a href="https://wa.me/79287084447" className="text-slate-400 hover:text-[#25D366] transition-colors">WhatsApp</a>
+                <a href="https://t.me/+79287084447" className="text-slate-400 hover:text-[#0088cc] transition-colors">Telegram</a>
+              </li>
+              <li className="text-sm opacity-60">г. Нальчик, ул. Мечникова, д. 155</li>
             </ul>
           </div>
 

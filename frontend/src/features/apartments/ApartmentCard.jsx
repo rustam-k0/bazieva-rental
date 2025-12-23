@@ -36,7 +36,7 @@ const ApartmentCard = ({ apartment, index = 0 }) => {
           </div>
 
           {/* Content */}
-          <div className="p-6 flex flex-col flex-grow">
+          <div className="p-4 md:p-6 flex flex-col flex-grow">
             <div className="mb-4">
               <h3 className="text-xl font-display font-bold text-slate-900 leading-tight mb-2 group-hover:text-brand-600 transition-colors">
                 {apartment.title}

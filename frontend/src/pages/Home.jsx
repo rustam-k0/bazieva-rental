@@ -4,16 +4,17 @@ import { ArrowRight, CheckCircle2, ShieldCheck, Key, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { apartments } from '../data/apartments';
 import ApartmentCard from '../features/apartments/ApartmentCard';
+import EmptyState from '../components/ui/EmptyState';
 
 const Home = () => {
   return (
     <div className="w-full">
       {/* HERO SECTION */}
-      <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-slate-900">
+      <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-brand-950">
         {/* Abstract Background */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-[20%] -left-[10%] w-[70vw] h-[70vw] bg-brand-900/40 rounded-full blur-[120px]"></div>
-          <div className="absolute top-[40%] -right-[10%] w-[60vw] h-[60vw] bg-blue-900/20 rounded-full blur-[100px]"></div>
+          <div className="absolute -top-[20%] -left-[10%] w-[70vw] h-[70vw] bg-brand-800/20 rounded-full blur-[120px]"></div>
+          <div className="absolute top-[40%] -right-[10%] w-[60vw] h-[60vw] bg-brand-900/40 rounded-full blur-[100px]"></div>
         </div>
 
         <div className="container mx-auto px-4 md:px-8 relative z-10">
@@ -29,15 +30,28 @@ const Home = () => {
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/50 border border-slate-700 text-brand-400 text-xs font-bold uppercase tracking-widest mb-8 backdrop-blur-md">
                 <Star size={12} fill="currentColor" /> Счастливые клиенты с 2016 года
               </div>
-              <h1 className="text-5xl md:text-7xl font-display font-bold text-white leading-[1.05] mb-8 tracking-tight">
-                Европейский комфорт <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-brand-200">
-                  с душой Кавказа
+              <h1 className="text-4xl md:text-7xl font-display font-medium text-white leading-[1.1] mb-8 tracking-tight">
+                Современный комфорт <br />
+                <span className="font-light italic text-brand-200">
+                  в центре Нальчика
                 </span>
               </h1>
-              <p className="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed font-light max-w-lg">
-                Авторский проект Мадины Базиевой. Безупречная чистота, честность и забота о каждом госте.
+              <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed font-light max-w-lg">
+                Внимательное отношение к деталям и искреннее гостеприимство. Более 10 лет создаем уют для наших гостей.
               </p>
+
+              <div className="flex flex-wrap gap-4 mb-10">
+                <div className="flex items-center gap-2 bg-brand-900/50 px-3 py-1.5 rounded-lg border border-brand-700/50 backdrop-blur-sm">
+                  <Star size={16} className="text-[#FFD700] fill-[#FFD700]" />
+                  <span className="text-white font-bold">5.0</span>
+                  <span className="text-brand-200 text-sm">Avito</span>
+                </div>
+                <div className="flex items-center gap-2 bg-brand-900/50 px-3 py-1.5 rounded-lg border border-brand-700/50 backdrop-blur-sm">
+                  <Star size={16} className="text-[#FFD700] fill-[#FFD700]" />
+                  <span className="text-white font-bold">9.9</span>
+                  <span className="text-brand-200 text-sm">Суточно.ру</span>
+                </div>
+              </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
@@ -64,7 +78,7 @@ const Home = () => {
             >
               <div className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] shadow-2xl shadow-black/50 border border-slate-700/50">
                 <img
-                  src="/assets/owner.jpg"
+                  src="/owner.jpg"
                   alt="Мадина Базиева"
                   className="w-full h-full object-cover scale-105 hover:scale-100 transition-transform duration-1000"
                 />
@@ -93,17 +107,17 @@ const Home = () => {
               {
                 icon: ShieldCheck,
                 title: "Юридическая чистота",
-                desc: "Работаем официально. Предоставляем полный пакет отчетных документов для командировок."
+                desc: "Полная прозрачность и безопасность. Предоставляем отчетные документы."
               },
               {
                 icon: CheckCircle2,
                 title: "Идеальная чистота",
-                desc: "Профессиональный клининг после каждого гостя. Белоснежное белье из прачечной."
+                desc: "Тщательная уборка после каждого гостя, качественное белье и порядок."
               },
               {
                 icon: Key,
-                title: "Бесконтактное заселение",
-                desc: "Заселяйтесь в любое удобное время 24/7 без ожидания и лишних контактов."
+                title: "Удобное заселение",
+                desc: "Бесконтактное заселение 24/7. Ценим ваше время и комфорт."
               }
             ].map((item, idx) => (
               <motion.div
@@ -144,7 +158,14 @@ const Home = () => {
                 <ApartmentCard key={apt.id} apartment={apt} index={i} />
               ))
             ) : (
-              <p className="text-slate-400">Загрузка...</p>
+              <div className="col-span-full py-8">
+                <EmptyState
+                  title="Загрузка списка"
+                  description="Подбираем для вас лучшие варианты..."
+                  actionLink={null}
+                />
+              </div>
+
             )}
           </div>
 

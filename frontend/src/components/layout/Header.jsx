@@ -20,30 +20,38 @@ const Header = () => {
     { name: 'Главная', path: '/' },
     { name: 'Квартиры', path: '/apartments' },
     { name: 'Услуги', path: '/services' },
+    { name: 'Контакты', path: '/contacts' },
     { name: 'FAQ', path: '/faq' },
   ];
 
   const phoneNumber = "79287084447";
 
+  const handleLogoClick = (e) => {
+    if (location.pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-white/90 backdrop-blur-xl shadow-sm py-4' : 'bg-transparent py-6'
           }`}
       >
         <div className="container flex justify-between items-center">
           {/* LOGO */}
-          <Link to="/" className="flex items-center gap-2 group z-50">
-            <div className="bg-brand-700 text-white p-1 rounded-lg">
+          <Link to="/" onClick={handleLogoClick} className="flex items-center gap-2 group z-50">
+            <div className={`p-1 rounded-lg transition-colors ${isScrolled ? 'bg-brand-900 text-white' : 'bg-brand-500 text-white'}`}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M3 21L12 4L21 21H3Z" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
               </svg>
             </div>
             <div className="flex flex-col leading-none">
-              <span className={`text-xl font-display font-bold tracking-tight transition-colors ${isScrolled ? 'text-slate-900' : 'text-slate-900'}`}>
+              <span className={`text-xl font-display font-medium tracking-tight transition-colors ${isScrolled ? 'text-brand-950' : 'text-white'}`}>
                 BAZIEVA
               </span>
-              <span className="text-[10px] font-bold tracking-[0.25em] text-slate-400 uppercase">
+              <span className={`text-[10px] font-bold tracking-[0.25em] uppercase ${isScrolled ? 'text-brand-800' : 'text-brand-200'}`}>
                 Rental
               </span>
             </div>
@@ -56,8 +64,8 @@ const Header = () => {
                 key={link.path}
                 to={link.path}
                 className={`text-sm font-medium transition-colors hover:text-brand-600 ${location.pathname === link.path
-                    ? 'text-brand-700 font-semibold'
-                    : 'text-slate-600'
+                  ? 'text-brand-700 font-semibold'
+                  : 'text-slate-600'
                   }`}
               >
                 {link.name}
